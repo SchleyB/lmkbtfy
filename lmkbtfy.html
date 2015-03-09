@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>LMKBTFY</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lmkbtfy.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <!--<img src="support_logo.png">-->
+                <h2 id="logo">Let me KB that for you</h2>
+            </a>
+        </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Topics</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Status</a></li>
+            </ul>           
+        </div><!--container-->
+    </nav>
+    
+    <div id="search" class="row">
+        <div class="container">
+            <h2 class="center">How can we help you?</h2>
+            <table class="center">
+                <tbody>
+                    <tr>
+                        <td><input id="text" value="" name="search" type="text" width="300px"/></td>
+                        <td><input id="submit" type="button" value="Submit"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!--container-->
+    </div><!--row-->
+    
+    <div id="url" class="row">
+        <div class="container">
+            <h4 class="center">Share this link:</h4>
+            <br>
+            <p class="center"></p>
+        </div><!--container-->
+    </div><!--row-->
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="nav">
+                        <li><a href="#">Ecommerce Software</a></li>
+                        <li><a href="#">Online Solutions</a></li>
+                        <li><a href="#">About Volusion</a></li>
+                        <li><a href="#">Customer Showcase</a></li>
+                        <li><a href="#">Online Store Builder</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="nav">
+                        <li><a href="#">Ecommerce Software</a></li>
+                        <li><a href="#">Online Solutions</a></li>
+                        <li><a href="#">About Volusion</a></li>
+                        <li><a href="#">Customer Showcase</a></li>
+                        <li><a href="#">Online Store Builder</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="nav">
+                        <li><a href="#">Ecommerce Software</a></li>
+                        <li><a href="#">Online Solutions</a></li>
+                        <li><a href="#">About Volusion</a></li>
+                        <li><a href="#">Customer Showcase</a></li>
+                        <li><a href="#">Online Store Builder</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <input id="submit" type="button" value="Try it free">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        
+    (function(){
+        var height_diff = $(window).height() - $('body').height();
+        if (height_diff > 0) {
+            $('footer').css('margin-top', height_diff);
+        }
+        
+        if(window.location.search !== ""){
+            var button_position = $('#submit').position();
+            button_position.top += 20;
+            button_position.left += 20;
+            var query = window.location.search;
+            if (query.substring(0, 1) == "?") {
+                query = query.substring(1);
+            }
+            var effectText = query.replace(/%20/g, " ");
+            window.setTimeout(function(){
+                $('#text').attr('value', effectText);
+            }, 2000);
+            
+            $('<img id="mouse" src="mouse.png">').appendTo('body')
+                .animate({
+                    top: button_position.top,
+                    left: button_position.left
+                    }, 4000, function(){                        
+                        $('#submit').addClass('border');
+                        window.location.href = 'http://support.volusion.com/search/find/' + query;
+                    });                        
+        }else{
+        
+        $('#submit').on('click', function(){
+            var text = $('#text').val().replace(/ /g, '%20');
+            $('#url').append('<p class="center">69.195.124.64/~slybarra/AJAX/lmkbtfy.html?' + text + '</p>');
+            });        
+        }   
+    })();
+        
+    </script>
+</body>
+</html>
